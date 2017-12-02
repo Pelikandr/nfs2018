@@ -1,0 +1,9 @@
+C:\Users\denis\OneDrive\Документы\Visual Studio 2012\Projects\nfs\nfs\bin\Debug\nfs.exe.config
+C:\Users\denis\OneDrive\Документы\Visual Studio 2012\Projects\nfs\nfs\bin\Debug\nfs.exe
+C:\Users\denis\OneDrive\Документы\Visual Studio 2012\Projects\nfs\nfs\bin\Debug\nfs.pdb
+C:\Users\denis\OneDrive\Документы\Visual Studio 2012\Projects\nfs\nfs\obj\Debug\nfs.Form1.resources
+C:\Users\denis\OneDrive\Документы\Visual Studio 2012\Projects\nfs\nfs\obj\Debug\nfs.Properties.Resources.resources
+C:\Users\denis\OneDrive\Документы\Visual Studio 2012\Projects\nfs\nfs\obj\Debug\nfs.csproj.GenerateResource.Cache
+C:\Users\denis\OneDrive\Документы\Visual Studio 2012\Projects\nfs\nfs\obj\Debug\nfs.exe
+C:\Users\denis\OneDrive\Документы\Visual Studio 2012\Projects\nfs\nfs\obj\Debug\nfs.pdb
+C:\Users\denis\OneDrive\Документы\Visual Studio 2012\Projects\nfs\nfs\obj\Debug\nfs.csprojResolveAssemblyReference.cache
