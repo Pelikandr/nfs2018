@@ -13,6 +13,9 @@ namespace nfs
     public partial class Form1 : Form
     {
         private readonly Timer updateRoadTimer;
+        private readonly Timer increaseSpeedTimer;
+        private readonly Timer updateEnemyTimer;
+        
         public Form1()
         {
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -20,18 +23,39 @@ namespace nfs
             updateRoadTimer.Interval = 200; 
             updateRoadTimer.Tick +=updateRoadTimerTick;
             updateRoadTimer.Enabled = true;
+            increaseSpeedTimer = new Timer();
+            increaseSpeedTimer.Interval = 200;
+            increaseSpeedTimer.Tick += IncreaseSpeedTimerTick;
+            updateEnemyTimer = new Timer();
+            updateEnemyTimer.Interval = 20;
+            updateEnemyTimer.Tick += updateEnemyTimerTick;
+            updateEnemyTimer.Enabled = true;
+
             InitializeComponent();
             DoubleBuffered = true;
             
         }
 
+        void updateEnemyTimerTick(object sender, EventArgs e)
+        {
+            enemy1.Location = new Point(enemy1.Location.X, enemy1.Location.Y + 15);
+        }
+
+        private void IncreaseSpeedTimerTick(object sender, EventArgs e)
+        {
+            if (updateRoadTimer.Interval < 20)
+                updateRoadTimer.Interval = 10;
+            else
+                updateRoadTimer.Interval -= 10;
+        }
+
         private void updateRoadTimerTick(object sender, EventArgs e)
         {
-            Point rm1 = new Point(454, -22); // начальные позиции разметки
-            Point rm2 = new Point(600, -22);
-            Point rm3 = new Point(746, -22);
-            Point rm4 = new Point(892, -22);
-            Point border = new Point(0, 730);
+            Point rm1 = new Point(454, -50); // начальные позиции разметки
+            Point rm2 = new Point(600, -50);
+            Point rm3 = new Point(746, -50);
+            Point rm4 = new Point(892, -50);
+            Point border = new Point(0, 714);
 
             rm11.Location = new Point(rm11.Location.X, rm11.Location.Y + 25);
             rm12.Location = new Point(rm12.Location.X, rm12.Location.Y + 25);
@@ -113,6 +137,17 @@ namespace nfs
         {
             button2.Hide();
             mainCar.Focus();
+            increaseSpeedTimer.Enabled = true;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rm21_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
