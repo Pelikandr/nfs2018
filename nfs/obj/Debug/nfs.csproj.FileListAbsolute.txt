@@ -25,3 +25,5 @@ C:\Users\denis\Desktop\nfs\nfs\obj\Debug\nfs.csprojResolveAssemblyReference.cach
 C:\Users\denis\Desktop\nfs\nfs\obj\Debug\nfs.Form1.resources
 C:\Users\denis\Desktop\nfs\nfs\obj\Debug\nfs.Properties.Resources.resources
 C:\Users\denis\Desktop\nfs\nfs\obj\Debug\nfs.csproj.GenerateResource.Cache
+C:\Users\denis\Desktop\git\nfs\nfs\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll
+C:\Users\denis\Desktop\git\nfs\nfs\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.xml

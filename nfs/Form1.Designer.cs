@@ -81,7 +81,7 @@
             this.rm12,
             this.rm11,
             this.mainCar});
-            this.shapeContainer1.Size = new System.Drawing.Size(1362, 741);
+            this.shapeContainer1.Size = new System.Drawing.Size(1354, 733);
             this.shapeContainer1.TabIndex = 0;
             this.shapeContainer1.TabStop = false;
             // 
@@ -301,7 +301,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::nfs.Properties.Resources.bg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1362, 741);
+            this.ClientSize = new System.Drawing.Size(1354, 733);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.shapeContainer1);

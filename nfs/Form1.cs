@@ -17,7 +17,7 @@ namespace nfs
         {
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             updateRoadTimer = new Timer(); 
-            updateRoadTimer.Interval = 20; 
+            updateRoadTimer.Interval = 200; 
             updateRoadTimer.Tick +=updateRoadTimerTick;
             updateRoadTimer.Enabled = true;
             InitializeComponent();
@@ -31,28 +31,28 @@ namespace nfs
             Point rm2 = new Point(600, -22);
             Point rm3 = new Point(746, -22);
             Point rm4 = new Point(892, -22);
-            Point border = new Point(0, 750);
+            Point border = new Point(0, 730);
 
-            rm11.Location = new Point(rm11.Location.X, rm11.Location.Y + 10);
-            rm12.Location = new Point(rm12.Location.X, rm12.Location.Y + 10);
-            rm13.Location = new Point(rm13.Location.X, rm13.Location.Y + 10);
-            rm14.Location = new Point(rm14.Location.X, rm14.Location.Y + 10);
-            rm15.Location = new Point(rm15.Location.X, rm15.Location.Y + 10);
-            rm21.Location = new Point(rm21.Location.X, rm21.Location.Y + 10);
-            rm22.Location = new Point(rm22.Location.X, rm22.Location.Y + 10);
-            rm23.Location = new Point(rm23.Location.X, rm23.Location.Y + 10);
-            rm24.Location = new Point(rm24.Location.X, rm24.Location.Y + 10);
-            rm25.Location = new Point(rm25.Location.X, rm25.Location.Y + 10);
-            rm31.Location = new Point(rm31.Location.X, rm31.Location.Y + 10);
-            rm32.Location = new Point(rm32.Location.X, rm32.Location.Y + 10);
-            rm33.Location = new Point(rm33.Location.X, rm33.Location.Y + 10);
-            rm34.Location = new Point(rm34.Location.X, rm34.Location.Y + 10);
-            rm35.Location = new Point(rm35.Location.X, rm35.Location.Y + 10);
-            rm41.Location = new Point(rm41.Location.X, rm41.Location.Y + 10);
-            rm42.Location = new Point(rm42.Location.X, rm42.Location.Y + 10);
-            rm43.Location = new Point(rm43.Location.X, rm43.Location.Y + 10);
-            rm44.Location = new Point(rm44.Location.X, rm44.Location.Y + 10);
-            rm45.Location = new Point(rm45.Location.X, rm45.Location.Y + 10);
+            rm11.Location = new Point(rm11.Location.X, rm11.Location.Y + 25);
+            rm12.Location = new Point(rm12.Location.X, rm12.Location.Y + 25);
+            rm13.Location = new Point(rm13.Location.X, rm13.Location.Y + 25);
+            rm14.Location = new Point(rm14.Location.X, rm14.Location.Y + 25);
+            rm15.Location = new Point(rm15.Location.X, rm15.Location.Y + 25);
+            rm21.Location = new Point(rm21.Location.X, rm21.Location.Y + 25);
+            rm22.Location = new Point(rm22.Location.X, rm22.Location.Y + 25);
+            rm23.Location = new Point(rm23.Location.X, rm23.Location.Y + 25);
+            rm24.Location = new Point(rm24.Location.X, rm24.Location.Y + 25);
+            rm25.Location = new Point(rm25.Location.X, rm25.Location.Y + 25);
+            rm31.Location = new Point(rm31.Location.X, rm31.Location.Y + 25);
+            rm32.Location = new Point(rm32.Location.X, rm32.Location.Y + 25);
+            rm33.Location = new Point(rm33.Location.X, rm33.Location.Y + 25);
+            rm34.Location = new Point(rm34.Location.X, rm34.Location.Y + 25);
+            rm35.Location = new Point(rm35.Location.X, rm35.Location.Y + 25);
+            rm41.Location = new Point(rm41.Location.X, rm41.Location.Y + 25);
+            rm42.Location = new Point(rm42.Location.X, rm42.Location.Y + 25);
+            rm43.Location = new Point(rm43.Location.X, rm43.Location.Y + 25);
+            rm44.Location = new Point(rm44.Location.X, rm44.Location.Y + 25);
+            rm45.Location = new Point(rm45.Location.X, rm45.Location.Y + 25);
             
             if (rm11.Location.Y > border.Y)
                 rm11.Location = rm1;
