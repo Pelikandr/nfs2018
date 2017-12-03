@@ -1,4 +1,4 @@
-﻿uusing System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,13 +16,13 @@ namespace nfs
         public Form1()
         {
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            updateRoadTimer = new Timer();
-            updateRoadTimer.Interval = 20;
-            updateRoadTimer.Tick += updateRoadTimerTick;
+            updateRoadTimer = new Timer(); 
+            updateRoadTimer.Interval = 20; 
+            updateRoadTimer.Tick +=updateRoadTimerTick;
             updateRoadTimer.Enabled = true;
             InitializeComponent();
             DoubleBuffered = true;
-
+            
         }
 
         private void updateRoadTimerTick(object sender, EventArgs e)
@@ -53,7 +53,7 @@ namespace nfs
             rm43.Location = new Point(rm43.Location.X, rm43.Location.Y + 10);
             rm44.Location = new Point(rm44.Location.X, rm44.Location.Y + 10);
             rm45.Location = new Point(rm45.Location.X, rm45.Location.Y + 10);
-
+            
             if (rm11.Location.Y > border.Y)
                 rm11.Location = rm1;
             if (rm12.Location.Y > border.Y)
