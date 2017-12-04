@@ -84,7 +84,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "exit";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.exit_Click);
             // 
             // button2
             // 
@@ -184,7 +184,6 @@
             this.rm21.Size = new System.Drawing.Size(10, 156);
             this.rm21.TabIndex = 11;
             this.rm21.TabStop = false;
-            this.rm21.Click += new System.EventHandler(this.rm21_Click);
             // 
             // rm31
             // 
@@ -375,7 +374,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.enemy1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainCar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rm12)).EndInit();

@@ -12,25 +12,24 @@ namespace nfs
 {
     public partial class Form1 : Form
     {
-        private readonly Timer updateRoadTimer;
+        private readonly Timer updateTimer;
         private readonly Timer increaseSpeedTimer;
         private readonly Timer updateEnemyTimer;
         
         public Form1()
         {
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            updateRoadTimer = new Timer(); 
-            updateRoadTimer.Interval = 200; 
-            updateRoadTimer.Tick +=updateRoadTimerTick;
-            updateRoadTimer.Enabled = true;
+            updateTimer = new Timer(); 
+            updateTimer.Interval = 200; 
+            updateTimer.Tick +=update;
+            updateTimer.Enabled = true;
             increaseSpeedTimer = new Timer();
-            increaseSpeedTimer.Interval = 200;
+            increaseSpeedTimer.Interval = 5000;
             increaseSpeedTimer.Tick += IncreaseSpeedTimerTick;
             updateEnemyTimer = new Timer();
-            updateEnemyTimer.Interval = 20;
+            updateEnemyTimer.Interval = 200;
             updateEnemyTimer.Tick += updateEnemyTimerTick;
-            updateEnemyTimer.Enabled = true;
-
+            
             InitializeComponent();
             DoubleBuffered = true;
             
@@ -38,92 +37,67 @@ namespace nfs
 
         void updateEnemyTimerTick(object sender, EventArgs e)
         {
-            enemy1.Location = new Point(enemy1.Location.X, enemy1.Location.Y + 15);
+            enemy1.Location = new Point(enemy1.Location.X, enemy1.Location.Y + 10);
         }
 
         private void IncreaseSpeedTimerTick(object sender, EventArgs e)
         {
-            if (updateRoadTimer.Interval < 20)
-                updateRoadTimer.Interval = 10;
+            if (updateTimer.Interval < 20)
+                updateTimer.Interval = 10;
             else
-                updateRoadTimer.Interval -= 10;
+                updateTimer.Interval -= 10;
+        }
+        
+
+        public void enemyAppearence(PictureBox[] enemy, Point[] line)
+        {
+            for (int i = 0; i < enemy.Length; i++)
+            {
+                Random rand = new Random();
+                int lineNumber = rand.Next(0, 5);
+                enemy[i].Location = line[lineNumber];
+            }
         }
 
-        private void updateRoadTimerTick(object sender, EventArgs e)
+        public void updateRoad(PictureBox[] rm, Point[] rmStartPosition, Point border)
+        {
+            for (int i=0; i<rm.Length; i++)
+            {
+                rm[i].Location = new Point(rm[i].Location.X, rm[i].Location.Y + 25);
+                if (rm[i].Location.Y > border.Y && i<5)
+                    rm[i].Location = rmStartPosition[0];
+                else if (rm[i].Location.Y > border.Y && i > 4 && i < 10 )
+                    rm[i].Location = rmStartPosition[1];
+                else if (rm[i].Location.Y > border.Y && i > 9 && i < 15)
+                    rm[i].Location = rmStartPosition[2];
+                else if (rm[i].Location.Y > border.Y && i > 14 && i < 20)
+                    rm[i].Location = rmStartPosition[3];
+            }
+        }
+        private void update(object sender, EventArgs e)
         {
             Point rm1 = new Point(454, -50); // начальные позиции разметки
             Point rm2 = new Point(600, -50);
             Point rm3 = new Point(746, -50);
             Point rm4 = new Point(892, -50);
-            Point border = new Point(0, 714);
+            Point line1 = new Point(333, -50); //начальные позиции машин
+            Point line2 = new Point(478, -50);
+            Point line3 = new Point(623, -50);
+            Point line4 = new Point(768, -50);
+            Point line5 = new Point(913, -50);
+            Point border = new Point(0, 714); 
+            Point[] line = new Point[] { line1, line2, line3, line4, line5 };
+            //Point[] rmLocation = new Point[] { rm11.Location, rm12.Location, rm13.Location, rm14.Location, rm15.Location, rm21.Location, rm22.Location, rm23.Location, rm24.Location, rm25.Location, rm31.Location, rm32.Location, rm33.Location, rm34.Location, rm35.Location, rm41.Location, rm42.Location, rm43.Location, rm44.Location, rm45.Location };
+            Point[] rmStartPosition = new Point[] { rm1, rm2, rm3, rm4 };
+            PictureBox[] rm = new PictureBox[] { rm11, rm12, rm13, rm14, rm15, rm21, rm22, rm23, rm24, rm25, rm31, rm32, rm33, rm34, rm35, rm41, rm42, rm43, rm44, rm45 };
+            PictureBox[] enemy = new PictureBox[] { enemy1 };
 
-            rm11.Location = new Point(rm11.Location.X, rm11.Location.Y + 25);
-            rm12.Location = new Point(rm12.Location.X, rm12.Location.Y + 25);
-            rm13.Location = new Point(rm13.Location.X, rm13.Location.Y + 25);
-            rm14.Location = new Point(rm14.Location.X, rm14.Location.Y + 25);
-            rm15.Location = new Point(rm15.Location.X, rm15.Location.Y + 25);
-            rm21.Location = new Point(rm21.Location.X, rm21.Location.Y + 25);
-            rm22.Location = new Point(rm22.Location.X, rm22.Location.Y + 25);
-            rm23.Location = new Point(rm23.Location.X, rm23.Location.Y + 25);
-            rm24.Location = new Point(rm24.Location.X, rm24.Location.Y + 25);
-            rm25.Location = new Point(rm25.Location.X, rm25.Location.Y + 25);
-            rm31.Location = new Point(rm31.Location.X, rm31.Location.Y + 25);
-            rm32.Location = new Point(rm32.Location.X, rm32.Location.Y + 25);
-            rm33.Location = new Point(rm33.Location.X, rm33.Location.Y + 25);
-            rm34.Location = new Point(rm34.Location.X, rm34.Location.Y + 25);
-            rm35.Location = new Point(rm35.Location.X, rm35.Location.Y + 25);
-            rm41.Location = new Point(rm41.Location.X, rm41.Location.Y + 25);
-            rm42.Location = new Point(rm42.Location.X, rm42.Location.Y + 25);
-            rm43.Location = new Point(rm43.Location.X, rm43.Location.Y + 25);
-            rm44.Location = new Point(rm44.Location.X, rm44.Location.Y + 25);
-            rm45.Location = new Point(rm45.Location.X, rm45.Location.Y + 25);
+            updateRoad(rm, rmStartPosition, border);
+            //enemyAppearence(enemy, line);
             
-            if (rm11.Location.Y > border.Y)
-                rm11.Location = rm1;
-            if (rm12.Location.Y > border.Y)
-                rm12.Location = rm1;
-            if (rm13.Location.Y > border.Y)
-                rm13.Location = rm1;
-            if (rm14.Location.Y > border.Y)
-                rm14.Location = rm1;
-            if (rm15.Location.Y > border.Y)
-                rm15.Location = rm1;
-            if (rm21.Location.Y > border.Y)
-                rm21.Location = rm2;
-            if (rm22.Location.Y > border.Y)
-                rm22.Location = rm2;
-            if (rm23.Location.Y > border.Y)
-                rm23.Location = rm2;
-            if (rm24.Location.Y > border.Y)
-                rm24.Location = rm2;
-            if (rm25.Location.Y > border.Y)
-                rm25.Location = rm2;
-            if (rm31.Location.Y > border.Y)
-                rm31.Location = rm3;
-            if (rm32.Location.Y > border.Y)
-                rm32.Location = rm3;
-            if (rm33.Location.Y > border.Y)
-                rm33.Location = rm3;
-            if (rm34.Location.Y > border.Y)
-                rm34.Location = rm3;
-            if (rm35.Location.Y > border.Y)
-                rm35.Location = rm3;
-            if (rm41.Location.Y > border.Y)
-                rm41.Location = rm4;
-            if (rm42.Location.Y > border.Y)
-                rm42.Location = rm4;
-            if (rm43.Location.Y > border.Y)
-                rm43.Location = rm4;
-            if (rm44.Location.Y > border.Y)
-                rm44.Location = rm4;
-            if (rm45.Location.Y > border.Y)
-                rm45.Location = rm4;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        
 
         private void updateMainCar(object sender, PreviewKeyDownEventArgs e)
         {
@@ -140,14 +114,9 @@ namespace nfs
             increaseSpeedTimer.Enabled = true;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void exit_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void rm21_Click(object sender, EventArgs e)
-        {
-
+            Application.Exit();
         }
     }
 }
