@@ -24,26 +24,41 @@ namespace nfs
             updateTimer.Tick +=update;
             updateTimer.Enabled = true;
             increaseSpeedTimer = new Timer();
-            increaseSpeedTimer.Interval = 5000;
+            increaseSpeedTimer.Interval = 100;
             increaseSpeedTimer.Tick += IncreaseSpeedTimerTick;
             updateEnemyTimer = new Timer();
-            updateEnemyTimer.Interval = 200;
-            updateEnemyTimer.Tick += updateEnemyTimerTick;
+            updateEnemyTimer.Interval = 3000;
+            //updateEnemyTimer.Tick += updateEnemyTimerTick;
+            //updateEnemyTimer.Enabled = true;
             
             InitializeComponent();
             DoubleBuffered = true;
             
         }
 
-        void updateEnemyTimerTick(object sender, EventArgs e)
+        /*void updateEnemyTimerTick(object sender, EventArgs e)
         {
-            enemy1.Location = new Point(enemy1.Location.X, enemy1.Location.Y + 10);
+            Point rm1 = new Point(454, -50);
+            Point rm2 = new Point(600, -50);
+            Point rm3 = new Point(746, -50);
+            Point rm4 = new Point(892, -50);
+            Point line1 = new Point(333, -50);
+            Point line2 = new Point(478, -50);
+            Point line3 = new Point(623, -50);
+            Point line4 = new Point(768, -50);
+            Point line5 = new Point(913, -50);
+            Point border = new Point(0, 714);
+            Point[] line = new Point[] { line1, line2, line3, line4, line5 };
+            Point[] rmStartPosition = new Point[] { rm1, rm2, rm3, rm4 };
+            PictureBox[] rm = new PictureBox[] { rm11, rm12, rm13, rm14, rm15, rm21, rm22, rm23, rm24, rm25, rm31, rm32, rm33, rm34, rm35, rm41, rm42, rm43, rm44, rm45 };
+            PictureBox[] enemy = new PictureBox[] { enemy1, enemy2, enemy3, enemy4 };
+            enemyAppearence(enemy, line);
         }
-
+        */
         private void IncreaseSpeedTimerTick(object sender, EventArgs e)
         {
-            if (updateTimer.Interval < 20)
-                updateTimer.Interval = 10;
+            if (updateTimer.Interval < 15)
+                updateTimer.Interval = 1;
             else
                 updateTimer.Interval -= 10;
         }
@@ -51,17 +66,36 @@ namespace nfs
 
         public void enemyAppearence(PictureBox[] enemy, Point[] line)
         {
+            Random r1 = new Random();
+            int[] arr = new int[5];
             for (int i = 0; i < enemy.Length; i++)
             {
-                Random rand = new Random();
-                int lineNumber = rand.Next(0, 5);
-                enemy[i].Location = line[lineNumber];
+                for (int j = 0; j < 5; j++)
+                {
+                    arr[j] = r1.Next(0, 5);
+
+                    enemy[i].Location = line[arr[j]];
+                }
             }
         }
 
-        public void updateRoad(PictureBox[] rm, Point[] rmStartPosition, Point border)
+        public void updateRoad(PictureBox[] rm, Point[] rmStartPosition, Point border, PictureBox[] enemy, Point[] line)
         {
-            for (int i=0; i<rm.Length; i++)
+            Random r1 = new Random();//движение энэми
+            int[] arr = new int[5];
+            for (int i=0; i<enemy.Length; i++)
+            {
+                enemy[i].Location = new Point(enemy[i].Location.X, enemy[i].Location.Y + 30);
+                if(enemy[i].Location.Y > border.Y)
+                    for (int j = 0; j < 5; j++)
+                    {
+                        arr[j] = r1.Next(0, 5);
+                        enemy[i].Location = line[arr[j]];
+                    }
+
+            }
+
+            for (int i=0; i<rm.Length; i++)//движение разметки
             {
                 rm[i].Location = new Point(rm[i].Location.X, rm[i].Location.Y + 25);
                 if (rm[i].Location.Y > border.Y && i<5)
@@ -74,26 +108,40 @@ namespace nfs
                     rm[i].Location = rmStartPosition[3];
             }
         }
+
+        public bool isLineFree(Point[] line, PictureBox[] enemy)
+        {
+            Point point = new Point();
+            for (int i = 0; i < enemy.Length; i++)
+            {
+                for (int y = 0; y < 772; i++)
+                {
+                    point.Y = y;
+                    if (enemy[i].Location.Y == point.Y)
+                        return false;
+                    else return true;
+                }
+            }
+            return true;
+        }
         private void update(object sender, EventArgs e)
         {
-            Point rm1 = new Point(454, -50); // начальные позиции разметки
+            Point rm1 = new Point(454, -50);
             Point rm2 = new Point(600, -50);
             Point rm3 = new Point(746, -50);
             Point rm4 = new Point(892, -50);
-            Point line1 = new Point(333, -50); //начальные позиции машин
+            Point line1 = new Point(333, -50); 
             Point line2 = new Point(478, -50);
             Point line3 = new Point(623, -50);
             Point line4 = new Point(768, -50);
             Point line5 = new Point(913, -50);
             Point border = new Point(0, 714); 
             Point[] line = new Point[] { line1, line2, line3, line4, line5 };
-            //Point[] rmLocation = new Point[] { rm11.Location, rm12.Location, rm13.Location, rm14.Location, rm15.Location, rm21.Location, rm22.Location, rm23.Location, rm24.Location, rm25.Location, rm31.Location, rm32.Location, rm33.Location, rm34.Location, rm35.Location, rm41.Location, rm42.Location, rm43.Location, rm44.Location, rm45.Location };
             Point[] rmStartPosition = new Point[] { rm1, rm2, rm3, rm4 };
             PictureBox[] rm = new PictureBox[] { rm11, rm12, rm13, rm14, rm15, rm21, rm22, rm23, rm24, rm25, rm31, rm32, rm33, rm34, rm35, rm41, rm42, rm43, rm44, rm45 };
-            PictureBox[] enemy = new PictureBox[] { enemy1 };
-
-            updateRoad(rm, rmStartPosition, border);
+            PictureBox[] enemy = new PictureBox[] { enemy1, enemy2, enemy3, enemy4, enemy5 };
             //enemyAppearence(enemy, line);
+            updateRoad(rm, rmStartPosition, border, enemy,line);
             
         }
 
