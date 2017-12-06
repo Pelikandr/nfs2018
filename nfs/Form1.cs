@@ -79,20 +79,28 @@ namespace nfs
             }
         }
 
+        
+
         public void updateRoad(PictureBox[] rm, Point[] rmStartPosition, Point border, PictureBox[] enemy, Point[] line)
         {
             Random r1 = new Random();//движение энэми
-            int[] arr = new int[5];
+            Random r2 = new Random();
+            int r, rr;
+            int[] checkArr = new int[enemy.Length];
             for (int i=0; i<enemy.Length; i++)
             {
                 enemy[i].Location = new Point(enemy[i].Location.X, enemy[i].Location.Y + 30);
-                if(enemy[i].Location.Y > border.Y)
-                    for (int j = 0; j < 5; j++)
+                if (isLineFree(line, enemy) == true && enemy[i].Location.Y > border.Y)
+                {
+                    r = r1.Next(0, 5);
+                    enemy[i].Location = line[r];
+                    checkArr[i] = r;
+                }
+                else if (isLineFree(line, enemy) == false && enemy[i].Location.Y > border.Y)
+                    do
                     {
-                        arr[j] = r1.Next(0, 5);
-                        enemy[i].Location = line[arr[j]];
-                    }
-
+                        r = r1.Next(0, 5);
+                    } while (r != checkArr[i]);
             }
 
             for (int i=0; i<rm.Length; i++)//движение разметки
@@ -114,12 +122,11 @@ namespace nfs
             Point point = new Point();
             for (int i = 0; i < enemy.Length; i++)
             {
-                for (int y = 0; y < 772; i++)
+                for (int y = 0; y < 150; y++)
                 {
                     point.Y = y;
-                    if (enemy[i].Location.Y == point.Y)
+                    if (enemy[i].Location.Y < 150)
                         return false;
-                    else return true;
                 }
             }
             return true;
