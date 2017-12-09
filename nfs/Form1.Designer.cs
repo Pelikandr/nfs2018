@@ -56,6 +56,8 @@
             this.enemy3 = new System.Windows.Forms.PictureBox();
             this.enemy4 = new System.Windows.Forms.PictureBox();
             this.enemy5 = new System.Windows.Forms.PictureBox();
+            this.enemy6 = new System.Windows.Forms.PictureBox();
+            this.enemy7 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.enemy1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainCar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rm12)).BeginInit();
@@ -82,6 +84,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.enemy3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enemy6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enemy7)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -109,7 +113,7 @@
             this.enemy1.BackColor = System.Drawing.Color.Transparent;
             this.enemy1.BackgroundImage = global::nfs.Properties.Resources.enemy1;
             this.enemy1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.enemy1.Location = new System.Drawing.Point(913, 200);
+            this.enemy1.Location = new System.Drawing.Point(913, 257);
             this.enemy1.Name = "enemy1";
             this.enemy1.Size = new System.Drawing.Size(111, 182);
             this.enemy1.TabIndex = 3;
@@ -120,7 +124,7 @@
             this.mainCar.BackColor = System.Drawing.Color.Transparent;
             this.mainCar.BackgroundImage = global::nfs.Properties.Resources.mainCar;
             this.mainCar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.mainCar.Location = new System.Drawing.Point(623, 555);
+            this.mainCar.Location = new System.Drawing.Point(623, 570);
             this.mainCar.Name = "mainCar";
             this.mainCar.Size = new System.Drawing.Size(111, 165);
             this.mainCar.TabIndex = 4;
@@ -391,6 +395,28 @@
             this.enemy5.TabIndex = 29;
             this.enemy5.TabStop = false;
             // 
+            // enemy6
+            // 
+            this.enemy6.BackColor = System.Drawing.Color.Transparent;
+            this.enemy6.BackgroundImage = global::nfs.Properties.Resources.enemy3;
+            this.enemy6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.enemy6.Location = new System.Drawing.Point(478, 179);
+            this.enemy6.Name = "enemy6";
+            this.enemy6.Size = new System.Drawing.Size(111, 182);
+            this.enemy6.TabIndex = 30;
+            this.enemy6.TabStop = false;
+            // 
+            // enemy7
+            // 
+            this.enemy7.BackColor = System.Drawing.Color.Transparent;
+            this.enemy7.BackgroundImage = global::nfs.Properties.Resources.enemy1;
+            this.enemy7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.enemy7.Location = new System.Drawing.Point(913, 520);
+            this.enemy7.Name = "enemy7";
+            this.enemy7.Size = new System.Drawing.Size(111, 182);
+            this.enemy7.TabIndex = 31;
+            this.enemy7.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -398,6 +424,8 @@
             this.BackgroundImage = global::nfs.Properties.Resources.bg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1354, 733);
+            this.Controls.Add(this.enemy7);
+            this.Controls.Add(this.enemy6);
             this.Controls.Add(this.enemy5);
             this.Controls.Add(this.enemy4);
             this.Controls.Add(this.enemy3);
@@ -456,6 +484,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.enemy3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enemy6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enemy7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -490,6 +520,8 @@
         private System.Windows.Forms.PictureBox enemy3;
         private System.Windows.Forms.PictureBox enemy4;
         private System.Windows.Forms.PictureBox enemy5;
+        private System.Windows.Forms.PictureBox enemy6;
+        private System.Windows.Forms.PictureBox enemy7;
     }
 }
 
