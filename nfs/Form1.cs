@@ -24,7 +24,7 @@ namespace nfs
             updateTimer.Tick +=update;
             updateTimer.Enabled = true;
             increaseSpeedTimer = new Timer();
-            increaseSpeedTimer.Interval = 100;
+            increaseSpeedTimer.Interval = 3000;
             increaseSpeedTimer.Tick += IncreaseSpeedTimerTick;
             updateEnemyTimer = new Timer();
             updateEnemyTimer.Interval = 3000;
@@ -40,21 +40,6 @@ namespace nfs
             else
                 updateTimer.Interval -= 10;
         }
-        
-        public void enemyAppearence(PictureBox[] enemy, Point[] line)
-        {
-            Random r1 = new Random();
-            int[] arr = new int[5];
-            for (int i = 0; i < enemy.Length; i++)
-            {
-                for (int j = 0; j < 5; j++)
-                {
-                    arr[j] = r1.Next(0, 5);
-
-                    enemy[i].Location = line[arr[j]];
-                }
-            }
-        }  
 
         public void updateRoad(PictureBox[] rm, Point[] rmStartPosition, Point border, PictureBox[] enemy, Point[] line)
         {
@@ -107,10 +92,12 @@ namespace nfs
                             updateTimer.Enabled = false;
                             increaseSpeedTimer.Enabled = false;
                             updateEnemyTimer.Enabled = false;
+                            mainCar.Enabled = false;
                         }
                     }
                 }
             }
+
         }
 
         public bool isLineFree(Point[] line, PictureBox[] enemy)
@@ -129,6 +116,7 @@ namespace nfs
         }
         private void update(object sender, EventArgs e)
         {
+            
             Point rm1 = new Point(454, -50);
             Point rm2 = new Point(600, -50);
             Point rm3 = new Point(746, -50);
@@ -156,7 +144,7 @@ namespace nfs
 
         private void start_Click(object sender, EventArgs e)
         {
-            button2.Hide();
+            start.Hide();
             mainCar.Focus();
             increaseSpeedTimer.Enabled = true;
         }

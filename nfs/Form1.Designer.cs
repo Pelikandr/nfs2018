@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.enemy1 = new System.Windows.Forms.PictureBox();
             this.mainCar = new System.Windows.Forms.PictureBox();
             this.rm12 = new System.Windows.Forms.PictureBox();
@@ -58,6 +57,7 @@
             this.enemy5 = new System.Windows.Forms.PictureBox();
             this.enemy6 = new System.Windows.Forms.PictureBox();
             this.enemy7 = new System.Windows.Forms.PictureBox();
+            this.start = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.enemy1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainCar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rm12)).BeginInit();
@@ -97,16 +97,6 @@
             this.button1.Text = "exit";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.exit_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(640, 162);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "start";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.start_Click);
             // 
             // enemy1
             // 
@@ -417,6 +407,21 @@
             this.enemy7.TabIndex = 31;
             this.enemy7.TabStop = false;
             // 
+            // start
+            // 
+            this.start.BackColor = System.Drawing.Color.Transparent;
+            this.start.BackgroundImage = global::nfs.Properties.Resources.start;
+            this.start.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.start.FlatAppearance.BorderSize = 0;
+            this.start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.start.ForeColor = System.Drawing.Color.Transparent;
+            this.start.Location = new System.Drawing.Point(616, 153);
+            this.start.Name = "start";
+            this.start.Size = new System.Drawing.Size(124, 60);
+            this.start.TabIndex = 32;
+            this.start.UseVisualStyleBackColor = false;
+            this.start.Click += new System.EventHandler(this.start_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -424,6 +429,7 @@
             this.BackgroundImage = global::nfs.Properties.Resources.bg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1354, 733);
+            this.Controls.Add(this.start);
             this.Controls.Add(this.enemy7);
             this.Controls.Add(this.enemy6);
             this.Controls.Add(this.enemy5);
@@ -452,7 +458,6 @@
             this.Controls.Add(this.rm12);
             this.Controls.Add(this.mainCar);
             this.Controls.Add(this.enemy1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -493,7 +498,6 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox enemy1;
         private System.Windows.Forms.PictureBox mainCar;
         private System.Windows.Forms.PictureBox rm12;
@@ -522,6 +526,7 @@
         private System.Windows.Forms.PictureBox enemy5;
         private System.Windows.Forms.PictureBox enemy6;
         private System.Windows.Forms.PictureBox enemy7;
+        private System.Windows.Forms.Button start;
     }
 }
 
