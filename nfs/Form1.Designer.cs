@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.enemy1 = new System.Windows.Forms.PictureBox();
             this.mainCar = new System.Windows.Forms.PictureBox();
             this.rm12 = new System.Windows.Forms.PictureBox();
@@ -57,7 +56,11 @@
             this.enemy5 = new System.Windows.Forms.PictureBox();
             this.enemy6 = new System.Windows.Forms.PictureBox();
             this.enemy7 = new System.Windows.Forms.PictureBox();
+            this.exit = new System.Windows.Forms.Button();
+            this.resume = new System.Windows.Forms.Button();
             this.start = new System.Windows.Forms.Button();
+            this.gameOver = new System.Windows.Forms.PictureBox();
+            this.retry = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.enemy1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainCar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rm12)).BeginInit();
@@ -86,17 +89,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.enemy5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gameOver)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1141, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "exit";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.exit_Click);
             // 
             // enemy1
             // 
@@ -407,6 +401,37 @@
             this.enemy7.TabIndex = 31;
             this.enemy7.TabStop = false;
             // 
+            // exit
+            // 
+            this.exit.BackColor = System.Drawing.Color.Transparent;
+            this.exit.BackgroundImage = global::nfs.Properties.Resources.exit1;
+            this.exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.exit.FlatAppearance.BorderSize = 0;
+            this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exit.ForeColor = System.Drawing.Color.Transparent;
+            this.exit.Location = new System.Drawing.Point(616, 219);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(124, 53);
+            this.exit.TabIndex = 33;
+            this.exit.UseVisualStyleBackColor = false;
+            this.exit.Click += new System.EventHandler(this.exit_Click);
+            // 
+            // resume
+            // 
+            this.resume.BackColor = System.Drawing.Color.Transparent;
+            this.resume.BackgroundImage = global::nfs.Properties.Resources.resume;
+            this.resume.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.resume.FlatAppearance.BorderSize = 0;
+            this.resume.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.resume.ForeColor = System.Drawing.Color.Transparent;
+            this.resume.Location = new System.Drawing.Point(616, 153);
+            this.resume.Name = "resume";
+            this.resume.Size = new System.Drawing.Size(124, 60);
+            this.resume.TabIndex = 34;
+            this.resume.UseVisualStyleBackColor = false;
+            this.resume.Visible = false;
+            this.resume.Click += new System.EventHandler(this.resume_Click);
+            // 
             // start
             // 
             this.start.BackColor = System.Drawing.Color.Transparent;
@@ -415,12 +440,39 @@
             this.start.FlatAppearance.BorderSize = 0;
             this.start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.start.ForeColor = System.Drawing.Color.Transparent;
-            this.start.Location = new System.Drawing.Point(616, 153);
+            this.start.Location = new System.Drawing.Point(616, 156);
             this.start.Name = "start";
             this.start.Size = new System.Drawing.Size(124, 60);
-            this.start.TabIndex = 32;
+            this.start.TabIndex = 35;
             this.start.UseVisualStyleBackColor = false;
             this.start.Click += new System.EventHandler(this.start_Click);
+            // 
+            // gameOver
+            // 
+            this.gameOver.BackColor = System.Drawing.Color.Transparent;
+            this.gameOver.Image = global::nfs.Properties.Resources.gameOver1;
+            this.gameOver.Location = new System.Drawing.Point(414, 12);
+            this.gameOver.Name = "gameOver";
+            this.gameOver.Size = new System.Drawing.Size(530, 138);
+            this.gameOver.TabIndex = 36;
+            this.gameOver.TabStop = false;
+            this.gameOver.Visible = false;
+            // 
+            // retry
+            // 
+            this.retry.BackColor = System.Drawing.Color.Transparent;
+            this.retry.BackgroundImage = global::nfs.Properties.Resources.retry;
+            this.retry.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.retry.FlatAppearance.BorderSize = 0;
+            this.retry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.retry.ForeColor = System.Drawing.Color.Transparent;
+            this.retry.Location = new System.Drawing.Point(623, 272);
+            this.retry.Name = "retry";
+            this.retry.Size = new System.Drawing.Size(111, 54);
+            this.retry.TabIndex = 37;
+            this.retry.UseVisualStyleBackColor = false;
+            this.retry.Visible = false;
+            this.retry.Click += new System.EventHandler(this.retry_Click);
             // 
             // Form1
             // 
@@ -429,7 +481,11 @@
             this.BackgroundImage = global::nfs.Properties.Resources.bg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1354, 733);
+            this.Controls.Add(this.retry);
+            this.Controls.Add(this.gameOver);
             this.Controls.Add(this.start);
+            this.Controls.Add(this.resume);
+            this.Controls.Add(this.exit);
             this.Controls.Add(this.enemy7);
             this.Controls.Add(this.enemy6);
             this.Controls.Add(this.enemy5);
@@ -458,7 +514,7 @@
             this.Controls.Add(this.rm12);
             this.Controls.Add(this.mainCar);
             this.Controls.Add(this.enemy1);
-            this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -491,13 +547,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.enemy5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemy7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gameOver)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox enemy1;
         private System.Windows.Forms.PictureBox mainCar;
         private System.Windows.Forms.PictureBox rm12;
@@ -526,7 +581,11 @@
         private System.Windows.Forms.PictureBox enemy5;
         private System.Windows.Forms.PictureBox enemy6;
         private System.Windows.Forms.PictureBox enemy7;
+        private System.Windows.Forms.Button exit;
+        private System.Windows.Forms.Button resume;
         private System.Windows.Forms.Button start;
+        private System.Windows.Forms.PictureBox gameOver;
+        private System.Windows.Forms.Button retry;
     }
 }
 

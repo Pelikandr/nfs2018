@@ -10,8 +10,10 @@ using System.Windows.Forms;
 
 namespace nfs
 {
+
     public partial class Form1 : Form
     {
+        //Form1 form1 = new Form1();
         private readonly Timer updateTimer;
         private readonly Timer increaseSpeedTimer;
         private readonly Timer updateEnemyTimer;
@@ -20,11 +22,11 @@ namespace nfs
         {
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             updateTimer = new Timer(); 
-            updateTimer.Interval = 200; 
+            updateTimer.Interval = 150; 
             updateTimer.Tick +=update;
             updateTimer.Enabled = true;
             increaseSpeedTimer = new Timer();
-            increaseSpeedTimer.Interval = 3000;
+            increaseSpeedTimer.Interval = 1500;
             increaseSpeedTimer.Tick += IncreaseSpeedTimerTick;
             updateEnemyTimer = new Timer();
             updateEnemyTimer.Interval = 3000;
@@ -87,12 +89,15 @@ namespace nfs
                         point.X = i;
                         Boolean y = mainCar.Location.Y.Equals(point.Y);
                         Boolean x = mainCar.Location.X.Equals(point.X);
-                        if (y == true && x == true)
+                        if (y == true && x == true || mainCar.Location.X<330 || mainCar.Location.X>930)
                         {
-                            updateTimer.Enabled = false;
-                            increaseSpeedTimer.Enabled = false;
-                            updateEnemyTimer.Enabled = false;
-                            mainCar.Enabled = false;
+                            exit.Show();
+                            gameOver.Show();
+                            retry.Show();
+                            updateTimer.Stop();
+                            increaseSpeedTimer.Stop();
+                            updateEnemyTimer.Stop();
+                            rm11.Focus();
                         }
                     }
                 }
@@ -116,7 +121,6 @@ namespace nfs
         }
         private void update(object sender, EventArgs e)
         {
-            
             Point rm1 = new Point(454, -50);
             Point rm2 = new Point(600, -50);
             Point rm3 = new Point(746, -50);
@@ -140,11 +144,21 @@ namespace nfs
                 mainCar.Location = new Point(mainCar.Location.X - 145, mainCar.Location.Y);
             if (e.KeyData == Keys.D|| e.KeyData == Keys.Right)
                 mainCar.Location = new Point(mainCar.Location.X + 145, mainCar.Location.Y);
+            if (e.KeyData == Keys.Escape)
+            {
+                exit.Show();
+                resume.Show();
+                updateTimer.Stop();
+                increaseSpeedTimer.Stop();
+                updateEnemyTimer.Stop();
+                rm11.Focus();
+            }
         }
 
         private void start_Click(object sender, EventArgs e)
         {
             start.Hide();
+            exit.Hide();
             mainCar.Focus();
             increaseSpeedTimer.Enabled = true;
         }
@@ -152,6 +166,22 @@ namespace nfs
         private void exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void resume_Click(object sender, EventArgs e)
+        {
+            resume.Hide();
+            exit.Hide();
+            mainCar.Focus();
+            updateTimer.Start();
+            increaseSpeedTimer.Start();
+            updateEnemyTimer.Start();
+        }
+
+        
+        private void retry_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }
